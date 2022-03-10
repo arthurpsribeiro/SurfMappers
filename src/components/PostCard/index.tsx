@@ -1,5 +1,9 @@
 import React from 'react';
 
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {IAppStackParams} from '../../routes/app.stack.routes';
+
 import {
   Container,
   CardTitle,
@@ -13,26 +17,35 @@ import {
   AuthorName,
 } from './styles';
 
-import {useNavigation} from '@react-navigation/native';
-
 interface IPostCardProps {
   postData: {
     id: number;
-    place: string;
-    date: string;
-    thumbnail: string;
+    album_info: {
+      title: string;
+      date: string;
+    };
+    author: string;
     gallery: string[];
   };
 }
 
 const PostCard: React.FC<IPostCardProps> = ({postData}) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<IAppStackParams>>();
+
+  const handleAlbumSelected = () => {
+    navigation.navigate('Album', {
+      id: postData.id,
+      album_info: postData.album_info,
+      author: postData.author,
+      gallery: postData.gallery,
+    });
+  };
 
   return (
-    <Container onPress={() => navigation.navigate('Album')}>
-      <CardTitle>{postData.place}</CardTitle>
+    <Container onPress={handleAlbumSelected}>
+      <CardTitle>{postData.post_info.title}</CardTitle>
       <CardSubtitleWrapper>
-        <CardSubtitle>{postData.date}</CardSubtitle>
+        <CardSubtitle>{postData.post_info.date}</CardSubtitle>
         <Icon name="more-vertical" />
       </CardSubtitleWrapper>
       <SpotImage source={{uri: postData.thumbnail}} />
@@ -44,7 +57,7 @@ const PostCard: React.FC<IPostCardProps> = ({postData}) => {
         </IconsWrapper>
         <AuthorWrapper>
           <Icon name="camera" />
-          <AuthorName>yurigargarin</AuthorName>
+          <AuthorName>{postData.author}</AuthorName>
         </AuthorWrapper>
       </CardFooter>
     </Container>

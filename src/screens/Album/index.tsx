@@ -1,4 +1,7 @@
 import React from 'react';
+
+import {IAppStackParams} from '../../routes/app.stack.routes';
+
 import Header from '../../components/Header';
 
 import {
@@ -20,25 +23,34 @@ import {
   FilterButton,
   FilterButtonText,
   AlbumTime,
+  GalleryGrid,
+  Photo,
 } from './styles';
 
+import {RouteProp, useRoute} from '@react-navigation/native';
+
+type AlbumScreenRouteProps = RouteProp<IAppStackParams, 'Album'>;
+
 export const Album: React.FC = () => {
+  const route = useRoute<AlbumScreenRouteProps>();
+  const {id, album_info, author, gallery} = route.params;
+
   return (
     <Container>
       <Header stackHeader screenName="Album" />
 
       <AlbumInfo>
         <TitleWrapper>
-          <Title>Praia do Meio, Natal-RN </Title>
+          <Title>{album_info.title}</Title>
           <Icon name="share-2" />
         </TitleWrapper>
-        <SubTitle>Sábado, 17 abril 2021 - 07 às 10h </SubTitle>
+        <SubTitle>{album_info.date}</SubTitle>
       </AlbumInfo>
 
       <AuthorSection>
         <ProfileWrapper>
           <Icon name="camera" />
-          <AuthorName>Manoel</AuthorName>
+          <AuthorName>{author}</AuthorName>
         </ProfileWrapper>
 
         <ButtonsWrapper>
@@ -59,6 +71,12 @@ export const Album: React.FC = () => {
       </PicturesInfo>
 
       <AlbumTime>6h - 7h</AlbumTime>
+
+      <GalleryGrid
+        data={gallery}
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={({item}) => <Photo source={{uri: item}} />}
+      />
     </Container>
   );
 };

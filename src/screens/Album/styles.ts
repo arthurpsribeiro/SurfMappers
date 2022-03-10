@@ -3,6 +3,11 @@ import styled from 'styled-components/native';
 import Feather from 'react-native-vector-icons/Feather';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {RectButton} from 'react-native-gesture-handler';
+import {Dimensions} from 'react-native';
+
+const {width} = Dimensions.get('screen');
+
+const photoWidth = width / 3;
 
 export const Container = styled.View`
   flex: 1;
@@ -20,7 +25,7 @@ export const TitleWrapper = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: ${RFValue(20)}px;
+  font-size: ${RFValue(18)}px;
   font-family: ${({theme}) => theme.fonts.bold};
   color: ${({theme}) => theme.colors.text_dark};
 `;
@@ -54,7 +59,7 @@ export const AuthorSection = styled.View`
   align-items: center;
   justify-content: space-between;
 
-  padding: 20px;
+  padding: 15px 20px;
 
   border-top-width: 2px;
   border-top-style: solid;
@@ -138,5 +143,20 @@ export const AlbumTime = styled.Text`
   font-family: ${({theme}) => theme.fonts.bold};
   color: ${({theme}) => theme.colors.text_dark};
 
-  padding: 10px 20px;
+  padding: 15px 20px;
+`;
+
+export const GalleryGrid = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+  nestedScrollEnabled: true,
+
+  columnWrapperStyle: {justifyContent: 'space-between'},
+  numColumns: 3,
+})``;
+
+export const Photo = styled.Image.attrs({
+  resizemode: 'contain',
+})`
+  width: ${photoWidth - 2}px;
+  height: ${photoWidth - 2}px;
 `;

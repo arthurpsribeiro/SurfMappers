@@ -14,10 +14,14 @@ export const Container = styled(RectButton)`
   background-color: ${({theme}) => theme.colors.background_secondary};
 `;
 
-export const CardTitle = styled.Text`
+export const CardTitle = styled.Text.attrs({
+  numberOfLines: 1,
+  ellipsizeMode: 'tail',
+})`
   font-size: ${RFValue(14)}px;
   font-family: ${({theme}) => theme.fonts.bold};
   color: ${({theme}) => theme.colors.main};
+  margin-bottom: 2px;
 `;
 
 export const CardSubtitleWrapper = styled.View`

@@ -1,7 +1,14 @@
 export interface IPostData {
   id: number;
-  place: string;
-  date: string;
+  post_info: {
+    title: string;
+    date: string;
+  };
+  album_info: {
+    title: string;
+    date: string;
+  };
+  author: string;
   thumbnail: string;
   gallery: string[];
 }
@@ -9,8 +16,15 @@ export interface IPostData {
 export const postsData: IPostData[] = [
   {
     id: 1,
-    place: 'Barra da Tijuca - Posto 6 - Rio de Janeiro...',
-    date: 'Sábado, 17 abril 2021 - 07 às 10h',
+    post_info: {
+      title: 'Barra da Tijuca - Posto 6 - Rio de Janeiro, RJ - Brasil',
+      date: 'Sábado, 17 abril 2021 - 07 às 10h',
+    },
+    album_info: {
+      title: 'Barra da Tijuca, Rio de Janeiro - RJ',
+      date: 'Hoje, Sábado, 17 abril 2021 - 07 às 10h',
+    },
+    author: 'yurigargarin',
     thumbnail:
       'https://images.unsplash.com/photo-1502680390469-be75c86b636f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3VyZnxlbnwwfDB8MHx8&auto=format&fit=crop&w=400&q=60',
     gallery: [
@@ -33,8 +47,15 @@ export const postsData: IPostData[] = [
   },
   {
     id: 2,
-    place: 'Barra da Tijuca - Posto 6 - Rio de Janeiro...',
-    date: 'Sábado, 17 abril 2021 - 07 às 10h',
+    post_info: {
+      title: 'Praia do Meio - Natal, RN - Brasil',
+      date: 'Sábado, 17 abril 2021 - 07 às 10h',
+    },
+    album_info: {
+      title: 'Praia do Meio - Natal, RN',
+      date: 'Hoje, Sábado, 17 abril 2021 - 07 às 10h',
+    },
+    author: 'Manoel',
     thumbnail:
       'https://images.unsplash.com/photo-1535182463927-440364075d9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c3VyZnxlbnwwfDB8MHx8&auto=format&fit=crop&w=400&q=60',
     gallery: [
@@ -50,8 +71,15 @@ export const postsData: IPostData[] = [
   },
   {
     id: 3,
-    place: 'Barra da Tijuca - Posto 6 - Rio de Janeiro...',
-    date: 'Sábado, 17 abril 2021 - 07 às 12h',
+    post_info: {
+      title: 'Barra da Tijuca - Posto 6 - Rio de Janeiro, RJ - Brasil',
+      date: 'Sábado, 17 abril 2021 - 07 às 10h',
+    },
+    album_info: {
+      title: 'Barra da Tijuca, Rio de Janeiro - RJ',
+      date: 'Hoje, Sábado, 17 abril 2021 - 07 às 10h',
+    },
+    author: 'yurigargarin',
     thumbnail:
       'https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c3VyZnxlbnwwfDB8MHx8&auto=format&fit=crop&w=400&q=60',
 
@@ -75,8 +103,15 @@ export const postsData: IPostData[] = [
   },
   {
     id: 4,
-    place: 'Barra da Tijuca - Posto 6 - Rio de Janeiro...',
-    date: 'Sábado, 17 abril 2021 - 07 às 10h',
+    post_info: {
+      title: 'Praia do Meio - Natal, RN - Brasil',
+      date: 'Sábado, 17 abril 2021 - 07 às 10h',
+    },
+    album_info: {
+      title: 'Praia do Meio - Natal, RN',
+      date: 'Hoje, Sábado, 17 abril 2021 - 07 às 10h',
+    },
+    author: 'Manoel',
     thumbnail:
       'https://images.unsplash.com/photo-1502933691298-84fc14542831?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN1cmZ8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
 
