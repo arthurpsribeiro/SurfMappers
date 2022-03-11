@@ -52,7 +52,7 @@ export const IconsWrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 20%;
+  width: ${RFValue(60)}px;
 `;
 
 export const AuthorWrapper = styled.View`

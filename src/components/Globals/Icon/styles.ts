@@ -18,9 +18,12 @@ export const IconContainer = styled(Feather)<IIconProps>`
   padding: 5px;
 
   border-width: ${({border}) => (border ? 1 : 0)}px;
-  border-style: ${({border}) => (border ? 'solid' : 0)};
+  border-style: ${({border}) => (border ? 'solid' : 'solid')};
   border-color: ${({border, theme}) => (border ? theme.colors.main : 0)};
   border-radius: ${({border}) => (border ? 8 : 0)}px;
 `;
 
-export const TouchableContainer = styled(BorderlessButton)<IIconProps>``;
+export const TouchableContainer = styled(BorderlessButton)<IIconProps>`
+  justify-content: center;
+  align-items: center;
+`;
