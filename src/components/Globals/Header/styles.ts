@@ -3,6 +3,10 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import {BorderlessButton} from 'react-native-gesture-handler';
 import {Platform} from 'react-native';
 
+interface IHeaderProps {
+  stackHeader: boolean;
+}
+
 export const Container = styled.View`
   background-color: ${({theme}) => theme.colors.background_secondary};
 
@@ -12,6 +16,7 @@ export const Container = styled.View`
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px 10px 20px;
+  margin-top: 5px;
 `;
 
 export const Logo = styled.Image.attrs({
@@ -21,12 +26,12 @@ export const Logo = styled.Image.attrs({
   height: ${RFValue(30)}px;
 `;
 
-export const IconsWrapper = styled.View`
+export const IconsWrapper = styled.View<IHeaderProps>`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: ${({stackHeader}) => stackHeader ? '120px' : '70px' };
 
-  width: ${props => (props.stackHeader ? '120px' : '70px')};
 `;
 
 export const BackButtonWrapper = styled.View`
