@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 import {IStoriesData} from '../../services/stories';
 import Feather from 'react-native-vector-icons/Feather';
 import {BorderlessButton} from 'react-native-gesture-handler';
-// import {IPostData} from '../../services/posts';
 
 export const Container = styled.View`
   flex: 1;
