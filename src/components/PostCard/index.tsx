@@ -24,12 +24,17 @@ interface IPostCardProps {
       title: string;
       date: string;
     };
+    post_info: {
+      title: string;
+      date: string;
+    };
+    thumbnail: string;
     author: string;
     gallery: string[];
   };
 }
 
-const PostCard: React.FC<IPostCardProps> = ({postData}) => {
+export const PostCard: React.FC<IPostCardProps> = ({postData}) => {
   const navigation = useNavigation<StackNavigationProp<IAppStackParams>>();
 
   const handleAlbumSelected = () => {
@@ -63,5 +68,3 @@ const PostCard: React.FC<IPostCardProps> = ({postData}) => {
     </Container>
   );
 };
-
-export default PostCard;

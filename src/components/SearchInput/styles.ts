@@ -9,7 +9,6 @@ export const Container = styled.View`
   margin-horizontal: 20px;
   padding: 10px 8px;
   border-radius: 5px;
-
   background-color: ${({theme}) => theme.colors.background_primary};
 `;
 

@@ -2,15 +2,12 @@ import styled from 'styled-components/native';
 
 import Feather from 'react-native-vector-icons/Feather';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {RectButton} from 'react-native-gesture-handler';
+import {BorderlessButton} from 'react-native-gesture-handler';
 
-export const Container = styled(RectButton)`
+export const Container = styled(BorderlessButton)`
   width: 100%;
-
   padding: 20px 10px;
-
   border-radius: 8px;
-
   background-color: ${({theme}) => theme.colors.background_secondary};
 `;
 

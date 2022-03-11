@@ -16,7 +16,7 @@ interface IHeaderProps {
   screenName?: 'string';
 }
 
-const Header: React.FC<IHeaderProps> = ({stackHeader, screenName}) => {
+export const Header: React.FC<IHeaderProps> = ({stackHeader, screenName}) => {
   const navigation = useNavigation();
 
   const handleBackButton = () => {
@@ -47,5 +47,3 @@ const Header: React.FC<IHeaderProps> = ({stackHeader, screenName}) => {
     </Container>
   );
 };
-
-export default Header;

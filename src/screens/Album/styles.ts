@@ -14,6 +14,10 @@ export const Container = styled.View`
   background-color: ${({theme}) => theme.colors.background_secondary};
 `;
 
+export const ScrollableContent = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: false,
+})``;
+
 export const AlbumInfo = styled.View`
   padding: 20px;
 `;
