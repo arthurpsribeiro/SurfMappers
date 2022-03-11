@@ -1,18 +1,17 @@
 import styled from 'styled-components/native';
-import Feather from 'react-native-vector-icons/Feather';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {BorderlessButton} from 'react-native-gesture-handler';
+import {Platform} from 'react-native';
 
 export const Container = styled.View`
   background-color: ${({theme}) => theme.colors.background_secondary};
 
   width: 100%;
-  height: ${RFValue(50)}px;
+  height: ${Platform.OS === 'ios' ? RFValue(60) : RFValue(70)}px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-horizontal: 20px;
-  margin-top: 10px;
+  padding: 20px 20px 10px 20px;
 `;
 
 export const Logo = styled.Image.attrs({
@@ -27,14 +26,7 @@ export const IconsWrapper = styled.View`
   align-items: center;
   justify-content: space-between;
 
-  /* background-color: red; */
-  /* width: 70px; */
   width: ${props => (props.stackHeader ? '120px' : '70px')};
-`;
-
-export const Icon = styled(Feather)`
-  font-size: ${RFValue(20)}px;
-  color: ${({theme}) => theme.colors.text};
 `;
 
 export const BackButtonWrapper = styled.View`

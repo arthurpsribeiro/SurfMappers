@@ -2,20 +2,20 @@ import React from 'react';
 
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {IAppStackParams} from '../../routes/app.stack.routes';
+import {IAppStackParams} from '../../../routes/app.stack.routes';
 
 import {
   Container,
   CardTitle,
   CardSubtitleWrapper,
   CardSubtitle,
-  Icon,
   SpotImage,
   CardFooter,
   IconsWrapper,
   AuthorWrapper,
   AuthorName,
 } from './styles';
+import {Icon} from '../../Globals/Icon';
 
 interface IPostCardProps {
   postData: {
@@ -51,17 +51,17 @@ export const PostCard: React.FC<IPostCardProps> = ({postData}) => {
       <CardTitle>{postData.post_info.title}</CardTitle>
       <CardSubtitleWrapper>
         <CardSubtitle>{postData.post_info.date}</CardSubtitle>
-        <Icon name="more-vertical" />
+        <Icon iconName="more-vertical" touchable />
       </CardSubtitleWrapper>
       <SpotImage source={{uri: postData.thumbnail}} />
 
       <CardFooter>
         <IconsWrapper>
-          <Icon name="heart" />
-          <Icon name="share-2" />
+          <Icon iconName="heart" touchable />
+          <Icon iconName="share-2" touchable />
         </IconsWrapper>
         <AuthorWrapper>
-          <Icon name="camera" />
+          <Icon iconName="camera" touchable />
           <AuthorName>{postData.author}</AuthorName>
         </AuthorWrapper>
       </CardFooter>

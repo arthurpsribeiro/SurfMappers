@@ -1,10 +1,9 @@
 import styled from 'styled-components/native';
 
-import Feather from 'react-native-vector-icons/Feather';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {BorderlessButton} from 'react-native-gesture-handler';
+import {RectButton} from 'react-native-gesture-handler';
 
-export const Container = styled(BorderlessButton)`
+export const Container = styled(RectButton)`
   width: 100%;
   padding: 20px 10px;
   border-radius: 8px;
@@ -32,11 +31,6 @@ export const CardSubtitle = styled.Text`
   font-size: ${RFValue(12)}px;
   font-family: ${({theme}) => theme.fonts.bold};
   color: ${({theme}) => theme.colors.text};
-`;
-
-export const Icon = styled(Feather)`
-  font-size: ${RFValue(18)}px;
-  color: ${({theme}) => theme.colors.text_dark};
 `;
 
 export const SpotImage = styled.Image.attrs({

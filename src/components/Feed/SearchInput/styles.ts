@@ -2,13 +2,14 @@ import styled from 'styled-components/native';
 
 import {RFValue} from 'react-native-responsive-fontsize';
 
-import Feather from 'react-native-vector-icons/Feather';
+import {Platform} from 'react-native';
 
 export const Container = styled.View`
   flex-direction: row;
   margin-horizontal: 20px;
-  padding: 10px 8px;
-  border-radius: 5px;
+  padding-vertical: ${Platform.OS === 'ios' ? 10 : 0}px;
+  padding-horizontal: 8px;
+  border-radius: 8px;
   background-color: ${({theme}) => theme.colors.background_primary};
 `;
 
@@ -18,10 +19,4 @@ export const TextInput = styled.TextInput`
   font-family: ${({theme}) => theme.fonts.regular};
   color: ${({theme}) => theme.colors.text_dark};
   margin-left: 10px;
-`;
-
-export const Icon = styled(Feather)`
-  align-self: center;
-  font-size: ${RFValue(16)}px;
-  color: ${({theme}) => theme.colors.text};
 `;

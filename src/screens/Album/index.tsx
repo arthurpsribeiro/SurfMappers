@@ -2,33 +2,20 @@ import React from 'react';
 
 import {IAppStackParams} from '../../routes/app.stack.routes';
 
-import {Header} from '../../components/Header';
+import {Header} from '../../components/Globals/Header';
 
 import {
   Container,
   ScrollableContent,
-  AlbumInfo,
-  TitleWrapper,
-  Title,
-  Icon,
-  IconBorderless,
-  SubTitle,
-  AuthorSection,
-  ProfileWrapper,
-  AuthorName,
-  ButtonsWrapper,
-  FollowButton,
-  FollowButtonTitle,
-  PicturesInfo,
-  PicturesAmount,
-  FilterButton,
-  FilterButtonText,
   AlbumTime,
   GalleryGrid,
   Photo,
 } from './styles';
 
 import {RouteProp, useRoute} from '@react-navigation/native';
+import {AlbumInfo} from '../../components/Album/AlbumInfo';
+import {AuthorSection} from '../../components/Album/AuthorSection';
+import {PicturesInfo} from '../../components/Album/PicturesInfo';
 
 type AlbumScreenRouteProps = RouteProp<IAppStackParams, 'Album'>;
 
@@ -41,42 +28,17 @@ export const Album: React.FC = () => {
       <Header stackHeader screenName="Album" />
 
       <ScrollableContent>
-        <AlbumInfo>
-          <TitleWrapper>
-            <Title>{album_info.title}</Title>
-            <Icon name="share-2" />
-          </TitleWrapper>
-          <SubTitle>{album_info.date}</SubTitle>
-        </AlbumInfo>
+        <AlbumInfo title={album_info.title} date={album_info.title} />
 
-        <AuthorSection>
-          <ProfileWrapper>
-            <Icon name="camera" />
-            <AuthorName>{author}</AuthorName>
-          </ProfileWrapper>
+        <AuthorSection author={author} />
 
-          <ButtonsWrapper>
-            <Icon name="message-square" />
-            <FollowButton>
-              <FollowButtonTitle>Seguindo</FollowButtonTitle>
-            </FollowButton>
-          </ButtonsWrapper>
-        </AuthorSection>
-
-        <PicturesInfo>
-          <PicturesAmount>260 fotos</PicturesAmount>
-          <FilterButton>
-            <IconBorderless name="filter" />
-            <FilterButtonText>Filtrar por surfista</FilterButtonText>
-            <IconBorderless name="chevron-down" />
-          </FilterButton>
-        </PicturesInfo>
+        <PicturesInfo />
 
         <AlbumTime>6h - 7h</AlbumTime>
 
         <GalleryGrid
           data={gallery}
-          keyExtractor={(_, index) => index}
+          keyExtractor={(_item, index) => index.toString()}
           renderItem={({item}) => <Photo source={{uri: item}} />}
         />
       </ScrollableContent>

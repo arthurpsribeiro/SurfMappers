@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components/native';
@@ -8,10 +9,13 @@ import {Routes} from './src/routes';
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView style={{flex: 1}}>
-        <StatusBar backgroundColor="transparent" translucent />
-        <Routes />
-      </SafeAreaView>
+      <StatusBar
+        barStyle={'dark-content'}
+        backgroundColor="transparent"
+        translucent
+      />
+      <SafeAreaView />
+      <Routes />
     </ThemeProvider>
   );
 };

@@ -5,6 +5,7 @@ import {useTheme} from 'styled-components';
 import {AppStackRoutes} from './app.stack.routes';
 import {DefaultScreen} from '../screens/DefaultScreen';
 import Feather from 'react-native-vector-icons/Feather';
+import {Platform} from 'react-native';
 
 const {Navigator, Screen} = createBottomTabNavigator();
 
@@ -18,7 +19,9 @@ export function AppTabRoutes() {
         tabBarInactiveTintColor: theme.colors.text,
         tabBarLabelPosition: 'below-icon',
         tabBarStyle: {
-          height: 50,
+          height: Platform.OS === 'ios' ? 80 : 60,
+          paddingTop: 10,
+          paddingBottom: Platform.OS === 'ios' ? 30 : 10,
         },
         headerShown: false,
       }}>

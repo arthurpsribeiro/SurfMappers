@@ -1,19 +1,16 @@
 import React from 'react';
 
-import {Header} from '../../components/Header';
-import SearchInput from '../../components/SearchInput';
-import {PostCard} from '../../components/PostCard';
-import {Storie} from '../../components/Storie';
+import {Header} from '../../components/Globals/Header';
+import {NewStorie} from '../../components/Feed/NewStorie';
+import {Storie} from '../../components/Feed/Storie';
+import {SearchInput} from '../../components/Feed/SearchInput';
+import {PostCard} from '../../components/Feed/PostCard';
 
 import {storiesData} from '../../services/stories';
 
 import {
   Container,
   Content,
-  NewStorie,
-  StorieCircle,
-  Icon,
-  AddStorieText,
   StoriesList,
   SearchTitleWrapper,
   TextRegular,
@@ -32,14 +29,7 @@ export const Feed: React.FC = () => {
           keyExtractor={item => item.id.toString()}
           renderItem={({item, index}) => {
             if (index === 0) {
-              return (
-                <NewStorie>
-                  <StorieCircle>
-                    <Icon name="camera" />
-                  </StorieCircle>
-                  <AddStorieText>Adicionar</AddStorieText>
-                </NewStorie>
-              );
+              return <NewStorie />;
             }
             return (
               <Storie

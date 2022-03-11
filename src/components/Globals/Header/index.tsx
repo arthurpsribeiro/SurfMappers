@@ -1,11 +1,11 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
+import {Icon} from '../Icon';
 
 import {
   Container,
   Logo,
   IconsWrapper,
-  Icon,
   BackButtonWrapper,
   BackButton,
   ScreenTitle,
@@ -34,15 +34,15 @@ export const Header: React.FC<IHeaderProps> = ({stackHeader, screenName}) => {
       ) : (
         <BackButtonWrapper>
           <BackButton onPress={handleBackButton}>
-            <Icon name="chevron-left" style={{fontSize: 30}} />
+            <Icon iconName="chevron-left" size={24} />
           </BackButton>
           <ScreenTitle>{screenName || 'titulo'}</ScreenTitle>
         </BackButtonWrapper>
       )}
       <IconsWrapper stackHeader={stackHeader}>
-        <Icon name="shopping-cart" />
-        <Icon name="message-square" />
-        {stackHeader && <Icon name="more-vertical" />}
+        <Icon iconName="shopping-cart" size={16} touchable />
+        <Icon iconName="message-square" size={16} touchable />
+        {stackHeader && <Icon iconName="more-vertical" size={16} touchable />}
       </IconsWrapper>
     </Container>
   );
